@@ -30,6 +30,10 @@ Este projeto utiliza um Arduino Uno, um sensor PIR, um sensor de temperatura TMP
 
 ![Esquema de Ligação](https://github.com/AnthonyMotobe/GS.EdgeComputing/assets/161531653/8ab03f72-63c2-4ee6-8d74-82279b251ecc)
 
+
+Link para acesso ao tinkercad:
+https://www.tinkercad.com/things/2alWbcqObCa-copy-of-terrific-bojo/editel?sharecode=ULMN7RzIR4x7xO5ffgWC7xdrg5SeeVDhuZpTBz5lWqc
+
 ### Conexões:
 
 - **Sensor PIR:**
