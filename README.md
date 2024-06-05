@@ -9,7 +9,7 @@ Este projeto utiliza um Arduino Uno, um sensor PIR, um sensor de temperatura TMP
 3. [Esquema de Ligação](#esquema-de-ligação)
 4. [Conexões](#Conexões)
 5. [Uso](#uso)
-6. [Expansões Futuras](#Expansões_Futuras)
+6. [Expansões Futuras](#Expansões-Futuras)
 7. [Instalação](#instalação)
 
 ## Integrantes
