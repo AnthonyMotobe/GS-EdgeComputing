@@ -69,61 +69,40 @@ Após instalar e configurar o projeto conforme as instruções na seção de Ins
 
 5. **Código Exemplo:**
    - Aqui está um exemplo do código que você deve carregar no Arduino para este projeto:
-     // Definição dos pinos
-const int pirPin = 2;      // Pino digital conectado ao sensor PIR
-const int LedVermelho = 3;      // Pino digital conectado ao LED vermelho
-const int LedVerde =  4; // Pino digital conectado ao LED verde
-const int tempPin = A0;    // Pino analógico conectado ao sensor de temperatura
+     ```cpp
+     // Define os pinos dos sensores e LEDs
+     const int pirPin = 2;       // Pino digital conectado ao sensor PIR
+     const int tmpPin = A0;      // Pino analógico conectado ao sensor TMP
+     const int ledPin = 3;       // Pino digital conectado ao LED
 
-void setup() {  
-  // Inicialização dos pinos dos LEDs como saída
-  pinMode(LedVermelho, OUTPUT);
-  pinMode(LedVerde, OUTPUT);
+     void setup() {
+       pinMode(pirPin, INPUT);   // Configura o pino do PIR como entrada
+       pinMode(ledPin, OUTPUT);  // Configura o pino do LED como saída
+       Serial.begin(9600);       // Inicializa a comunicação serial
+     }
 
-  // Inicialização do pino do sensor PIR como entrada
-  pinMode(pirPin, INPUT);
+     void loop() {
+       // Leitura do sensor PIR
+       int pirState = digitalRead(pirPin);
+       if (pirState == HIGH) {
+         digitalWrite(ledPin, HIGH); // Acende o LED se o PIR detectar movimento
+       } else {
+         digitalWrite(ledPin, LOW);  // Apaga o LED se não houver movimento
+       }
 
-  // Inicialização da comunicação serial para monitorar o sensor de temperatura
-  Serial.begin(9600);
+       // Leitura do sensor TMP
+       int tmpValue = analogRead(tmpPin);
+       float voltage = tmpValue * (5.0 / 1023.0);  // Converte a leitura para tensão
+       float temperatureC = (voltage - 0.5) * 100; // Converte a tensão para temperatura em Celsius
 
-  // Mensagem inicial
-  Serial.println("Sistema iniciado");
-}
+       // Imprime a temperatura no Monitor Serial
+       Serial.print("Temperatura: ");
+       Serial.print(temperatureC);
+       Serial.println(" °C");
 
-void loop() {
-  // Leitura do estado do sensor PIR
-  int pirState = digitalRead(pirPin);
-  Serial.print("PIR State: ");
-  Serial.println(pirState);
-
-  // Controle dos LEDs baseado no estado do sensor PIR
-  if (pirState == HIGH) {
-    // Se movimento detectado, acende o LED vermelho
-    Serial.println("Movimento detectado! Acendendo LED vermelho.");
-    digitalWrite(LedVermelho, HIGH);
-    digitalWrite(LedVerde, LOW);
-  } else {
-    // Se não há movimento, acende o LED verde
-    Serial.println("Sem movimento. Acendendo LED verde.");
-    digitalWrite(LedVermelho, LOW);
-    digitalWrite(LedVerde, HIGH);
-  }
-
-  // Leitura do sensor de temperatura
-  int tempValue = analogRead(tempPin);
-
-  // Conversão do valor analógico para temperatura 
-  float voltage = tempValue * (5.0 / 1023.0);
-  float temperatureC = (voltage - 0.5) * 100.0; // Para TMP36
-
-  // Envio da temperatura para o monitor serial
-  Serial.print("Temperatura: ");
-  Serial.print(temperatureC);
-  Serial.println(" C");
-
-  // Atraso para não ter spam de Alertas
-  delay(1000);
-}
+       delay(1000); // Espera 1 segundo antes de fazer a próxima leitura
+     }
+     ```
 
 ### Expansões Futuras
 - **Adição de Mais Sensores:**
