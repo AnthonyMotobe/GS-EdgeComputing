@@ -70,7 +70,7 @@ Após instalar e configurar o projeto conforme as instruções na seção de Ins
 5. **Código Exemplo:**
    - Aqui está um exemplo do código que você deve carregar no Arduino para este projeto:
      // Definição dos pinos
-'''const int pirPin = 2;      // Pino digital conectado ao sensor PIR
+const int pirPin = 2;      // Pino digital conectado ao sensor PIR
 const int LedVermelho = 3;      // Pino digital conectado ao LED vermelho
 const int LedVerde =  4; // Pino digital conectado ao LED verde
 const int tempPin = A0;    // Pino analógico conectado ao sensor de temperatura
@@ -123,7 +123,7 @@ void loop() {
 
   // Atraso para não ter spam de Alertas
   delay(1000);
-}'''
+}
 
 ### Expansões Futuras
 - **Adição de Mais Sensores:**
