@@ -22,7 +22,7 @@ Este projeto utiliza um Arduino Uno, um sensor PIR, um sensor de temperatura TMP
 - Arduino Uno
 - Sensor PIR (Passive Infrared Sensor)
 - Sensor TMP (Sensor de Temperatura)
-- LEDs (por exemplo, vermelho para alerta de movimento)
+- LEDs (por exemplo, vermelho para alerta de temperatura)
 - Resistores (adequados para os LEDs)
 - Protoboard e jumpers
 
